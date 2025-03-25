@@ -3,8 +3,7 @@ package scenarios.judicial
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import utils._
-import scala.util.Random
-import com.typesafe.config.{Config, ConfigFactory}
+
 import scala.concurrent.duration._
 
 object Judicial_Users {
@@ -12,7 +11,7 @@ object Judicial_Users {
   val JudicialPostUsers = 
 
     exec(http("RD_Judicial_Users_#{service}")
-      .post(Environment.judicialUrl + "/refdata/judicial/users/")
+      .post(Environment.judicialUrl + "/refdata/judicial/users")
       .header("Authorization", "Bearer #{accessToken}")
       .header("ServiceAuthorization", "Bearer #{rd_judicial_apiBearerToken}")
       .header("Content-Type", "application/json")
